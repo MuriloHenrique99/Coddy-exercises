@@ -1,0 +1,15 @@
+#include <iostream>
+
+void values(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << std::endl;
+    }
+
+}
+
+int main() {
+    int numbers[] = {109, 4, 7, 19, 57, 216, 68, 89, 132, 63};
+    int size = std::size(numbers);
+    values(numbers, size);
+    return 0;
+}
