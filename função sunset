@@ -1,0 +1,20 @@
+#include <string>
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+string decode_sunset_message(std::string coded_message) {
+    int res;
+    std::string mes = coded_message;
+    size_t mensagem = std::size(mes);
+    std::string novo;
+    for(int i = 0; i < mensagem; i++){
+        res = i - 3 * (i / 3);
+        if(res == 0){
+            novo += mes[i];
+        }
+
+    }
+
+    return novo;
+}
