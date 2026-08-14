@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string reverseLabel(string label) {
+        // Escreva o código aqui;
+        std::string invertido;
+        //int j = 0; contador pro array invertido
+        // std::string invertido[80]; funciona tambem pois vc declarou quanto o array tem de espaço 
+        size_t total = std::size(label);
+        for(int i = total - 1; i >= 0; i--){
+            invertido += label[i];
+            // invertido[j] = label[i]; o ultimo do label passa pro primeiro do invertido
+            // j++ o contador de j aumenta e garante que tudo funcione
+        }
+        return invertido;
+}
