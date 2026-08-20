@@ -1,0 +1,11 @@
+#include <vector>
+
+using namespace std;
+vector<int> extractVarnishedSection(std::vector<int> arr, int start, int end) {
+        // Escreva seu código aqui
+        vector<int> calculo;
+        for(int i = end; i >= start; i--){
+            calculo.push_back(arr[i]);
+        }
+        return calculo;
+}
