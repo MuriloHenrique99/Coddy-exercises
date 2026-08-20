@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main(void){
+
+    int res,nota,loop,condMeu,ludi,n,m;
+    std::string total;
+    int tam = 12;
+    int bigVeto[tam];
+
+    std::cout << "digite o numero da 1 matriz: "; std::cin >> n;
+    std::cout << "digite o numero da 2 matriz: "; std::cin >> m;
+    int mat[n][m];
+    int posn = 0;
+    int posm = 0;
+
+    char palavra_secret[35];
+    char jogo_forca[35];
+    char letra[1];
+    char tentando[35];
+    int tamanho,tentativas,acertos;
+    bool correto = false;
+
+    tentativas = 5;
+    acertos = 0;
+
+    std::cout << "Digite uma palavra para o jogo: "; std::cin >> palavra_secret;
+    tam = sizeof(palavra_secret) / 4;
+    tam -= 1;
+
+    for(int i = 0; i < tam ; i++){
+        jogo_forca[i] = '*';
+    }
+
+    while(tentativas > 0 && acertos < tam){
+        std::cout << "Jogo da forca: " << jogo_forca << std::endl;
+        for(int i = 0; i < 1; i++){
+            correto = false;
+            std::cout << "digite uma letra: "; std::cin >> letra[i];
+            for(int j = 0; j < tam; j++){
+                if(letra[i] == palavra_secret[j]){
+                    std::cout << "voce achou a letra: " << palavra_secret[j] << std::endl;
+                    jogo_forca[j] = letra[i];
+                    acertos += 1;
+                    correto = true;
+                }
+            }
+        if(correto == false){
+            tentativas -= 1;
+            std::cout << "voce errou, menos 1 tentativa. Tentativas restantes: " << tentativas << std::endl;
+        }
+        if(tentativas == 0){
+            std::cout << "poxa voce perdeu" << std::endl;
+        }
+        if(acertos == tam){
+            std::cout << "Voce venceu!" << std::endl;
+        }
+    }
+    }
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            std::cout << "digite o indice " << posn << " " << posm << ": "; std::cin >> mat[i][j];
+            posm += 1;
+        }
+        posn += 1;
+    }
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            std::cout << "o que voce digitou: " << mat[i][j] << std::endl;
+        }
+    }
+
+    for(int i = 0; i < tam; i++){
+        std::cout << "numero para vetor simples: "; std::cin >> bigVeto[i];
+        std::cout << "vc colocou: " << bigVeto[i] << std::endl;
+    }
+
+    condMeu = 0;
+    ludi = 30;
+    do {
+        std::cout << "o valor do teste do while e: " << condMeu << " " << ludi << std::endl;
+        condMeu += 1;
+        ludi += 11; //a condicao começa como falsa mas mesmo assim funciona
+    } while(condMeu < 20 && ludi > 40);
+    loop = 0;
+
+    while(++loop < 15){
+        std::cout << "o valor de loop e: " << loop << std::endl;
+    }
+    std:: cout << "o valor de loop final ficou: " << loop << std::endl; //o comando ++loop incrementa pra 15 mesmo que nao mostre isso
+
+    std::cout << "digite um valor: "; std::cin >> nota;
+
+    (nota > 10) ? res = 5 : res = 9;
+    total = (nota <= 7) ? "reprvado" : "aprovado";
+
+    std::cout << "o valor de res ficou: " << res << std::endl;
+    std::cout << "voce foi: " << total << std::endl;
+
+    std::cin.ignore(80, '\n');
+    std::cout << "Tecle <Enter> para encerrar...";
+    std::cin.get();
+    return 0;
+
+}
