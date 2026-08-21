@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    // Ler o número de elementos a adicionar
+    int n, retirar;
+    cin >> n;
+    
+    // Criar um vetor vazio
+    vector<int> myVector;
+    
+    // Ler e inserir n elementos
+    for (int i = 0; i < n; i++) {
+        int element;
+        cin >> element;
+        // Inserir elemento no vetor
+        myVector.push_back(element);
+    }
+    
+    // Ler o número de elementos a remover
+    int m;
+    cin >> m;
+    
+    // TODO: Escreva seu código abaixo
+    // 1. Imprimir o tamanho inicial do vetor
+    std::cout << "Initial size: " << myVector.size() << std::endl;
+    // 2. Para cada elemento a remover, encontre-o e use .erase() e imprima o tamanho após cada remoção
+    for(int i = 0; i < m; i++){
+        cin >> retirar;
+        auto it = find(myVector.begin(), myVector.end(), retirar);
+        if (it != myVector.end()){
+            myVector.erase(it);
+        }
+        cout << "After removing " << retirar << ": size = " << myVector.size() << std::endl;
+    }
+    // 3. Imprimir os elementos restantes no vetor
+    int tam = myVector.size();
+    cout << "Remaining elements: ";
+    for(int i = 0; i < tam; i++){
+        if(i != tam - 1)
+            cout << myVector[i] << " ";
+        else 
+            cout << myVector[i];
+    }
+
+    return 0;
+}
